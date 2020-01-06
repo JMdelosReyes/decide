@@ -104,3 +104,4 @@ ENV/
 settings.py
 .github/
 .travis.yml
+decide/local_settings.py
