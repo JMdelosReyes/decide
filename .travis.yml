@@ -16,13 +16,9 @@ install:
 script:
 - cd decide
 - cp travis_local_settings.py local_settings.py
+- python ./manage.py makemigrations
+- python ./manage.py migrate
 - python ./manage.py test --keepdb
 - coverage run --branch --source=. ./manage.py test --keepdb
 - coverage xml
 - python-codacy-coverage -r coverage.xml
-deploy:
-  provider: heroku
-  app: egc-decide-moltres
-  strategy: git
-  api_key:
-    secure: aiNFpsavetzX2Q8paROIBHmiruR9rdGAO4AEGGqSKeVGZBa2hSnom6rdRgKU59kdmf1KnwkEtT7Ih9hga9bwkur/IaITEB3ZlbWDXluaCqr45T+dIsdNiwRGitlqiki2upuomvgaV2P45MZQL+E7msiZxgqB/qU5L1LUKILWvVJao/Am+1XXeF3AETy6QIaMEh0aWQGEwrh79hKpqboJ7wpCIclHyIy3YDrfWTx2jTJIipkw+2X6f6/lQcBSGZ4yTEzUkANf0sidbfcXFGWJTO1thnYvD+m/FqO6ZkA57O6MEdijKLO6lEbh81VHzFmFVZAOa7WwOO//X9cVhgZ2KWO1ZFFJIIAyQzICJOEga3HPs2Rj9ZLLmz57CMaGZlHTHBZn/4/paGvjeTNaGRBKeNM2m5APjB37F3leIK5INIxY7yzC0QJiLwVChOoymnNE2FA1JJxffYuW1mMhHXqr2t5GCayOW5TZTbsHVQ15+aH3Ewm+/i6YQKjtL5Gvn8MvUsNLeJJeYlM7fEEXYkJ+geKPcQ4pNebyXiftlZnGvde9fQt9pNVHZkNepgy7XImKXOrQdUWCThRo2qFSJUEslirpjm1caZoC2DJmltTVPS/uMyDwYHXUpY475q//f0W3DcJ68auZLKN9OTjE+VFuW/Ed9k+xjCTS+D0010KX0SY=
