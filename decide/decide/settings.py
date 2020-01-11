@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'social_django',
+    'django_telegram_login',
 
     'corsheaders',
     'django_filters',
@@ -57,12 +59,14 @@ REST_FRAMEWORK = {
 
 AUTHENTICATION_BACKENDS = [
     'base.backends.AuthBackend',
+
     'social_core.backends.github.GithubOAuth2', # <--
     'social_core.backends.google.GoogleOAuth2',
     'social_core.backends.twitter.TwitterOAuth', # <--
     'social_core.backends.facebook.FacebookOAuth2', # <--
     'social_core.backends.reddit.RedditOAuth2',
     'social_core.backends.spotify.SpotifyOAuth2',
+
     'django.contrib.auth.backends.ModelBackend', # <--
 ]
 
@@ -78,8 +82,7 @@ MODULES = [
     'voting',
 ]
 
-#BASEURL = 'http://localhost:8000'
-BASEURL = 'https://decidemoltres-votacion.herokuapp.com'
+BASEURL = 'https://egc-decide-moltres.herokuapp.com'
 
 APIS = {
     'authentication': BASEURL,
@@ -89,11 +92,9 @@ APIS = {
     'mixnet': BASEURL,
     'postproc': BASEURL,
     'store': BASEURL,
-    'gateway': BASEURL,
     'visualizer': BASEURL,
     'voting': BASEURL,
 }
-
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -103,6 +104,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'social_django.middleware.SocialAuthExceptionMiddleware', # <--
 ]
 
 ROOT_URLCONF = 'decide.urls'
@@ -110,7 +112,8 @@ ROOT_URLCONF = 'decide.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'authentication/templates') ,
+		],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -118,6 +121,9 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+
+                'social_django.context_processors.backends',  # <--
+                'social_django.context_processors.login_redirect', # <--
             ],
         },
     },
@@ -182,7 +188,7 @@ TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 STATIC_URL = '/static/'
 
 # number of bits for the key, all auths should use the same number of bits
-KEYBITS = 161
+KEYBITS = 256
 
 # Versioning
 ALLOWED_VERSIONS = ['v1', 'v2']
@@ -204,7 +210,6 @@ if os.path.exists("config.jsonnet"):
 
 INSTALLED_APPS = INSTALLED_APPS + MODULES
 django_heroku.settings(locals())
-
 
 # Authentication
 
