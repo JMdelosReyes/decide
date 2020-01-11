@@ -16,6 +16,10 @@ import django_heroku
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+SESSION_COOKIE_HTTPONLY = False
+SOCIAL_AUTH_ALLOWED_REDIRECT_HOSTS = ['decide-angular.herokuapp.com:443']
+CORS_ORIGN_WHITELIST = ['decide-angular.herokuapp.com']
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
@@ -86,6 +90,7 @@ APIS = {
 }
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
