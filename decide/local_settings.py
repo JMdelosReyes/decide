@@ -2,7 +2,7 @@ ALLOWED_HOSTS = ["*"]
 
 SESSION_COOKIE_HTTPONLY = False
 SOCIAL_AUTH_ALLOWED_REDIRECT_HOSTS = ['localhost:4200']
-CORS_ORIGN_WHITELIST = ['localhost:4200']
+CORS_ORIGIN_WHITELIST = ['localhost:4200']
 
 
 # Modules in use, commented modules that you won't use

@@ -18,7 +18,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 SESSION_COOKIE_HTTPONLY = False
 SOCIAL_AUTH_ALLOWED_REDIRECT_HOSTS = ['decide-angular.herokuapp.com:443']
-CORS_ORIGN_WHITELIST = ['decide-angular.herokuapp.com']
+CORS_ORIGIN_WHITELIST = ['decide-angular.herokuapp.com']
 
 
 # Quick-start development settings - unsuitable for production
