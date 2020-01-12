@@ -27,3 +27,9 @@ script:
 - coverage xml
 - python-codacy-coverage -r coverage.xml
 - rm local_settings.py
+deploy:
+  provider: heroku
+  app: egc-decide-moltres
+  strategy: git
+  api_key:
+    secure: jRel3ByKy+0EPpnTaavfY26tSJaUmQTH/ELwGoAQKuNf68ZW+/Aek0WG6pRkQSt+uxbFIFRIiM69ZRkhfu7CasBUl+l4vBPEuGpFu/c6oWqVdnpYljPAS/LYrTP1h0SYCIbLA7gFcp3jY+lQCz5A2TZgjC8DI3MLkwXA6ih+/pvTuo1Q4+/f3dltwy7rrGfmM+z/Ek+lz6ZVjoNoa9UwTDj97DJnICjWRypQG7t8LdmWEWCBIswqs+/UgTRc6uimHnwe8wFggwduHfkSOHI6P0htvXcIrXOiaI//IxcD7qW/LUnhIBb3LTXPGKtL+C289LbwUaRc69zShiHro1PsGgLbefePIfbQHiZTxB9JgPOk93as0S/x3sRMyHzmeowSqNP0zcX3HvgaEHBNgpu5iwvjYNVC6SOtYifkEzMx4TktYDE7bRtuW4byXm2YONvwc4DurZ/UNS0FynATFt9c+O26LDFu8SfknH4yI3xMu8nI1HWMxOMzYacyVCOxkKeZeUDbL6JzBg/vknbQMONtk2BJW0ge7n0hEnCZZvsViT7zna3sPC/H6bLW7BJjaQ1t33234WMj+VqVAFyaC8+AhLXdxs9gm67Ch6D46zeSNz8zl6tpCpI9NJZgvwTd7SuaA0VIjYXZwxeWfzMPfXexZrCy6CnyO0RvA3M0j+S8fBs=
