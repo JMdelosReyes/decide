@@ -1,6 +1,10 @@
 dist: xenial
 services:
 - postgresql
+branches:
+  only:
+  - master
+  - develop
 addons:
   postgresql: '9.4'
 before_script:
@@ -16,13 +20,16 @@ install:
 script:
 - cd decide
 - cp travis_local_settings.py local_settings.py
+- python ./manage.py makemigrations
+- python ./manage.py migrate
 - python ./manage.py test --keepdb
 - coverage run --branch --source=. ./manage.py test --keepdb
 - coverage xml
 - python-codacy-coverage -r coverage.xml
+- rm local_settings.py
 deploy:
   provider: heroku
   app: egc-decide-moltres
   strategy: git
   api_key:
-    secure: aiNFpsavetzX2Q8paROIBHmiruR9rdGAO4AEGGqSKeVGZBa2hSnom6rdRgKU59kdmf1KnwkEtT7Ih9hga9bwkur/IaITEB3ZlbWDXluaCqr45T+dIsdNiwRGitlqiki2upuomvgaV2P45MZQL+E7msiZxgqB/qU5L1LUKILWvVJao/Am+1XXeF3AETy6QIaMEh0aWQGEwrh79hKpqboJ7wpCIclHyIy3YDrfWTx2jTJIipkw+2X6f6/lQcBSGZ4yTEzUkANf0sidbfcXFGWJTO1thnYvD+m/FqO6ZkA57O6MEdijKLO6lEbh81VHzFmFVZAOa7WwOO//X9cVhgZ2KWO1ZFFJIIAyQzICJOEga3HPs2Rj9ZLLmz57CMaGZlHTHBZn/4/paGvjeTNaGRBKeNM2m5APjB37F3leIK5INIxY7yzC0QJiLwVChOoymnNE2FA1JJxffYuW1mMhHXqr2t5GCayOW5TZTbsHVQ15+aH3Ewm+/i6YQKjtL5Gvn8MvUsNLeJJeYlM7fEEXYkJ+geKPcQ4pNebyXiftlZnGvde9fQt9pNVHZkNepgy7XImKXOrQdUWCThRo2qFSJUEslirpjm1caZoC2DJmltTVPS/uMyDwYHXUpY475q//f0W3DcJ68auZLKN9OTjE+VFuW/Ed9k+xjCTS+D0010KX0SY=
+    secure: jRel3ByKy+0EPpnTaavfY26tSJaUmQTH/ELwGoAQKuNf68ZW+/Aek0WG6pRkQSt+uxbFIFRIiM69ZRkhfu7CasBUl+l4vBPEuGpFu/c6oWqVdnpYljPAS/LYrTP1h0SYCIbLA7gFcp3jY+lQCz5A2TZgjC8DI3MLkwXA6ih+/pvTuo1Q4+/f3dltwy7rrGfmM+z/Ek+lz6ZVjoNoa9UwTDj97DJnICjWRypQG7t8LdmWEWCBIswqs+/UgTRc6uimHnwe8wFggwduHfkSOHI6P0htvXcIrXOiaI//IxcD7qW/LUnhIBb3LTXPGKtL+C289LbwUaRc69zShiHro1PsGgLbefePIfbQHiZTxB9JgPOk93as0S/x3sRMyHzmeowSqNP0zcX3HvgaEHBNgpu5iwvjYNVC6SOtYifkEzMx4TktYDE7bRtuW4byXm2YONvwc4DurZ/UNS0FynATFt9c+O26LDFu8SfknH4yI3xMu8nI1HWMxOMzYacyVCOxkKeZeUDbL6JzBg/vknbQMONtk2BJW0ge7n0hEnCZZvsViT7zna3sPC/H6bLW7BJjaQ1t33234WMj+VqVAFyaC8+AhLXdxs9gm67Ch6D46zeSNz8zl6tpCpI9NJZgvwTd7SuaA0VIjYXZwxeWfzMPfXexZrCy6CnyO0RvA3M0j+S8fBs=
