@@ -12,6 +12,7 @@ class Migration(migrations.Migration):
     dependencies = [
         ('voting', '0001_initial'),
         ('auth', '0009_alter_user_last_name_max_length'),
+        ('voting', '0004_auto_20191222_1709'),
     ]
 
     operations = [
