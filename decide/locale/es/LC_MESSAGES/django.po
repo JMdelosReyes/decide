@@ -438,5 +438,93 @@ msgstr "Inglés"
 msgid "Español"
 msgstr "Español"
 
+#: decide/visualizer/templates/visualizer/visualizer.html:48
+msgid "About Us"
+msgstr "Sobre Nosotros"
+
+#: decide/visualizer/templates/visualizer/visualizer.html:49
+msgid "Contact"
+msgstr "Contacto"
+
+#: decide/visualizer/templates/visualizer/visualizer.html:59
+msgid "High Contrast"
+msgstr "Alto Contraste"
+
+#: decide/visualizer/templates/visualizer/visualizer.html:78
+msgid "Dark"
+msgstr "Oscuro"
+
+#: decide/visualizer/templates/visualizer/visualizer.html:79
+msgid "Light"
+msgstr "Claro"
+
+#: decide/visualizer/templates/visualizer/visualizer.html:116
+msgid " Voting [[ voting.id ]] - [[ voting.name ]] "
+msgstr "Votación [[ voting.id ]] - [[ voting.name ]]"
+
+#: decide/visualizer/templates/visualizer/visualizer.html:118
+msgid "Votación no comenzada"
+msgstr ""
+
+#: decide/visualizer/templates/visualizer/visualizer.html:119
+msgid "Votación en curso"
+msgstr ""
+
+#: decide/visualizer/templates/visualizer/visualizer.html:127
+msgid "Option"
+msgstr "Opción"
+
+#: decide/visualizer/templates/visualizer/visualizer.html:128
+msgid "Score"
+msgstr "Puntuación"
+
+#: decide/visualizer/templates/visualizer/visualizer.html:129
+msgid "Votes"
+msgstr "Votos"
+
+#: decide/visualizer/templates/visualizer/visualizer.html:161
+#: decide/visualizer/templates/visualizer/visualizer.html:164
+msgid "Export this Chart to PNG"
+msgstr "Exportar esta gráfica a PNG"
+
+#: decide/visualizer/templates/visualizer/visualizer.html:169
+msgid "Export this votation to PDF"
+msgstr "Exportar esta votación a PDF"
+
+#: decide/visualizer/templates/visualizer/visualizer.html:171
+msgid "Export this votation to Excel"
+msgstr "Exportar esta votación a Excel"
+
+#: decide/visualizer/templates/visualizer/visualizer.html:425
+msgid "More information about the plataform"
+msgstr "Más información sobre la plataforma"
+
+#: decide/visualizer/templates/visualizer/visualizer.html:427
+msgid ""
+"The objective of this project is to implement \n"
+"                    a secure electronic voting platform,which complies\n"
+"                    with a series of basic guarantees, \n"
+"                    such as anonymity and voting secrecy. \n"
+"                    It is an educational project, designed to study voting \n"
+"                    systems, so simplicity takes precedence over "
+"efficiency \n"
+"                    whenever possible. Therefore, some shortcomings are\n"
+"                    assumed to allow it to be understood and extended."
+msgstr ""
+"Se trata de un proyecto educativo, pensado para el estudio de \n"
+"                    sistemas de votación, por lo que prima la simplicidad "
+"por encima de la\n"
+"                    eficiencia cuando sea posible. Por lo tanto se asumen "
+"algunas carencias\n"
+"                    para permitir que sea entendible y extensible."
+
+#: decide/visualizer/templates/visualizer/visualizer.html:440
+msgid "Contact Information"
+msgstr "Información de Contacto"
+
+#: decide/visualizer/templates/visualizer/visualizer.html:463
+msgid "All rights reserved"
+msgstr "Todos los derechos reservados"
+
 #~ msgid "Spanish"
 #~ msgstr "Español"
