@@ -1,4 +1,5 @@
 from django.db import models
+from django import forms
 from django.contrib.auth.models import User
 
 # Create your models here.
@@ -12,14 +13,14 @@ class UserProfile(models.Model):
     PROVINCE_OPTIONS = (
         ('S', 'Sevillistán'),
         ('H', 'Huelvistán'),
-	    ('C', 'Cadistán'),
+	('C', 'Cadistán'),
     )
 
     EMPLOYMENT_OPTIONS = (
         ('M', 'Militant'),
         ('B', 'Baron'),
-	    ('S', 'Senator'),
-	    ('P', 'President'),
+	('S', 'Senator'),
+	('P', 'President'),
     )
     
     related_political_party = models.ForeignKey('voting.PoliticalParty', 
